@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="bF1-ge-egL">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="NDi-9J-dtf" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="NDi-9J-dtf" customClass="ResultViewController" customModule="NamesCompApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uL7-DL-7gd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name and second name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-nx-nK5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name and second name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-nx-nK5">
                                 <rect key="frame" x="81" y="227" width="252" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -72,20 +72,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A6R-sS-8vW"/>
+                    <connections>
+                        <outlet property="namesLabel" destination="MvD-nx-nK5" id="oso-kX-Ytj"/>
+                        <outlet property="progressView" destination="W7U-rT-9nZ" id="6Rl-P9-hVp"/>
+                        <outlet property="resultLabel" destination="hYh-5h-wWY" id="oz6-rd-mPb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5C-Rp-gzn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="69"/>
         </scene>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NamesCompApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="NamesCompApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Names Compatibility" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obn-vT-522">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Names Compatibility" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obn-vT-522">
                                 <rect key="frame" x="82" y="202" width="250" height="53"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="33"/>
                                 <nil key="textColor"/>
@@ -141,7 +146,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="NDi-9J-dtf" kind="show" id="ORj-ud-7UA"/>
+                                    <action selector="resultButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jgl-OT-gLF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,10 +158,16 @@
                             <constraint firstItem="8qV-CE-SUl" firstAttribute="top" secondItem="uPV-1P-eyq" secondAttribute="bottom" constant="40" id="RoQ-oj-fhF"/>
                             <constraint firstItem="8qV-CE-SUl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZXb-LA-doL"/>
                             <constraint firstItem="uPV-1P-eyq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b4q-FD-xYa"/>
+                            <constraint firstItem="Obn-vT-522" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b7N-Lr-TRA"/>
                             <constraint firstItem="8qV-CE-SUl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uHR-ys-Rj6"/>
                             <constraint firstItem="uPV-1P-eyq" firstAttribute="top" secondItem="Obn-vT-522" secondAttribute="bottom" constant="30" id="xWx-8f-uUc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="partnerNameTF" destination="tEw-Xa-9pO" id="6Wb-6n-nrW"/>
+                        <outlet property="yourNameTF" destination="mI9-6H-UGZ" id="cOd-ep-uFO"/>
+                        <segue destination="NDi-9J-dtf" kind="show" identifier="goToResult" id="wru-jB-RZV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
