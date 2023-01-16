@@ -3,7 +3,6 @@
 //  NamesCompApp
 //
 //  Created by Alexey Manokhin on 22.08.2022.
-//
 
 import UIKit
 
@@ -74,6 +73,4 @@ var secondName: String!
         }
         return result
     }
-    
-    
 }
